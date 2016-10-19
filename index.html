@@ -1,24 +1,24 @@
 
-	 <!DOCTYPE html>
-	<html>
-	<head>
-	    <title>RPG Hangman</title>
+   <!DOCTYPE html>
+  <html>
+  <head>
+      <title>RPG Hangman</title>
 
 
-	    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+      <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
 
-	    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
 
-	    <link rel="stylesheet" href="assets/css/hangman.css">
+      <link rel="stylesheet" href="assets/css/hangman.css">
 
           <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 
 
-	</head>
-	<body>
+  </head>
+  <body>
 
-	<script type="text/javascript">
+  <script type="text/javascript">
 
         var hangman = {
             words: ["warrior", "summoner", "scholar", "black mage", "paladin", "bard", "ninja", "white mage", "astrologian", "red mage", "monk", "dark knight", "machinist"],
@@ -61,6 +61,7 @@
                   if  (this.letterGuessed.indexOf(this.usedLetters) > -1) {
 
                         document.getElementById('lines').disabled = true;
+                        
 
                   }
 
@@ -126,24 +127,24 @@
         }
     }
 
-	</script>
+  </script>
 
 
-	<h1>RPG Hangman Game</h1>
+  <h1>RPG Hangman Game</h1>
 
-		<p>How well do you know MMORPGs? Try to guess these words commonly used in Final Fantasy XIV.</p>
-	
-			<br>
-		<p>Good luck!</p>
-		
-	<form id="game">
-	    <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter" />
-	       <button id="guess" name="guess" type="button">Guess</button>
-	           <button onclick="setupGame" id="restart" name="restart" type="button">Restart</button>
-	</form>
-	
-	   <p id= "lines"></p>
-	       <p id= "decor">Guessed Letters</p>
+    <p>How well do you know MMORPGs? Try to guess these words commonly used in Final Fantasy XIV.</p>
+  
+      <br>
+    <p>Good luck!</p>
+    
+  <form id="game">
+      <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter" />
+         <button id="guess" name="guess" type="button">Guess</button>
+             <button onclick="setupGame" id="restart" name="restart" type="button">Restart</button>
+  </form>
+  
+     <p id= "lines"></p>
+         <p id= "decor">Guessed Letters</p>
                 <p>Lives: </p>
                     <p id= "life"></p>
                 <p>Wins: </p>
@@ -155,5 +156,5 @@
         <div id= "guessedletters"></div>
 
 
-	</body>
-	</html>
+  </body>
+  </html>
