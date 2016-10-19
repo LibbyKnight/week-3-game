@@ -103,17 +103,28 @@
 
                //this should display the lines per lettersinword but its not.
                
-               document.getElementById("lines").innerHTML = this.activeWord;
+               document.getElementById("lines").innerHTML = this.lettersInWord;
 
                for (i = 0; i < (this.lettersInWord.length); i++) {
 
-                 document.getElementById("lines").innerHTML = this.correctLetters;
+                  if (this.lettersInWord.charAt(i) == this.letterGuessed.toLowerCase()) {
+ }
+                else {
+                    this.lettersInWord.append("_");
+
+                }
+                this.lettersInWord.append(" ");
+            }
+
+                    document.getElementById("lines").innerHTML = this.correctLetters;
                  // document.querySelector(".lines").innerHtml = this.correctLetters;
+
+
 
                  }
              }
 
-              }
+              
              
                 //If it's not show just a line
  
