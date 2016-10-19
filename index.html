@@ -1,0 +1,159 @@
+
+	 <!DOCTYPE html>
+	<html>
+	<head>
+	    <title>RPG Hangman</title>
+
+
+	    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+
+	    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+
+	    <link rel="stylesheet" href="assets/css/hangman.css">
+
+          <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+
+	</head>
+	<body>
+
+	<script type="text/javascript">
+
+        var hangman = {
+            words: ["warrior", "summoner", "scholar", "black mage", "paladin", "bard", "ninja", "white mage", "astrologian", "red mage", "monk", "dark knight", "machinist"],
+            lives: 5,
+            activeWord: '',
+            letterGuessed: '',
+            lettersInWord: [],
+            correctLetters: [],
+            usedLetters: [],
+            wins: 0,
+            losses: 0,
+
+            setupGame: function() {
+                //pick a random word
+
+                this.activeWord = this.words[Math.floor(Math.random() * this.words.length)];
+
+                console.log(this.activeWord);
+
+
+                // this values are not working. gives error of null.
+                // document.getElementById("life").innerHTML = this.lives;
+                // document.getElementById("won").innerHTML = this.wins;
+                // document.getElementById("lost").innerHTML = this.losses;
+
+                this.lettersInWord = this.activeWord.split('');
+
+                this.updateGuess;
+                // this should restart the game when user clicks restart. its not working.   
+                // document.getElementById("restart").innerHTML = this.setupGame;
+            },
+            updateGuess: function() {
+
+                 //this should get the input when the user click on the button, not only from writing it.  
+                 this.letterGuessed = document.getElementById("guess").innerHtml = this.letterGuessed;
+
+                    //its displaying the same correctletter infinetly.
+                        console.log(this.letterGuessed);
+
+                  if  (this.letterGuessed.indexOf(this.usedLetters) > -1) {
+
+                        document.getElementById('lines').disabled = true;
+
+                  }
+
+                 if (this.lettersInWord.indexOf(this.letterGuessed) > -1) {
+
+                  this.correctLetters.push (this.letterGuessed);
+
+                     this.wins++;
+
+                    this.buildWordOnPage();
+                   
+                }
+
+                else {
+
+                   this.usedLetters.push (this.letterGuessed);
+
+                    document.getElementById("guessedletters").innerHTML = this.usedLetters;
+
+                     this.lives--;
+
+                }
+
+                if (this.lives === 0) {
+
+                    alert("Game Over");
+                    alert("Do you want to play again? Click Restart!")
+                    this.losses++;
+                    setupGame();
+
+                
+                }
+
+                //see if they have all the letters correct - if so, show a win 
+
+         },
+
+            buildWordOnPage: function() {
+
+               //this should display the lines per lettersinword but its not.
+               
+               document.getElementById("lines").innerHTML = this.activeWord;
+
+               for (i = 0; i < (this.lettersInWord.length); i++) {
+
+                 document.getElementById("lines").innerHTML = this.correctLetters;
+                 // document.querySelector(".lines").innerHtml = this.correctLetters;
+
+                 }
+             }
+
+              }
+             
+                //If it's not show just a line
+ 
+        hangman.setupGame(); {
+
+        document.onkeyup = function(event) {
+            hangman.letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+            hangman.updateGuess(hangman.letterGuessed); 
+               
+
+        }
+    }
+
+	</script>
+
+
+	<h1>RPG Hangman Game</h1>
+
+		<p>How well do you know MMORPGs? Try to guess these words commonly used in Final Fantasy XIV.</p>
+	
+			<br>
+		<p>Good luck!</p>
+		
+	<form id="game">
+	    <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter" />
+	       <button id="guess" name="guess" type="button">Guess</button>
+	           <button onclick="setupGame" id="restart" name="restart" type="button">Restart</button>
+	</form>
+	
+	   <p id= "lines"></p>
+	       <p id= "decor">Guessed Letters</p>
+                <p>Lives: </p>
+                    <p id= "life"></p>
+                <p>Wins: </p>
+            <p id= "won"></p>
+        <p>Losses: </p>
+    <p id= "lost"></p>
+
+
+        <div id= "guessedletters"></div>
+
+
+	</body>
+	</html>
