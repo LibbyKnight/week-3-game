@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    background-image: url(http://blog.psychics.com/wp-content/uploads/2015/08/Crystal-ball.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+h1 {
+    font-family: "Bungee Shade";
+    text-align: center;
+    padding-top: 550px;
+    padding-left: 200px;
+    /*position: fixed;*/
+    
+}
+
+.lives, .losses, .wins, .guesses, #guessedletters, #life, #lost, #won, p {
+    font-family: "Concert One";
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 150px;
+    /*position: fixed;*/
+    
+}
+
+#lost {
+    color: red;
+    
+}
+#won {
+    color: green;
+    
+}
+
+#life {
+    color: purple;
+}
+
+#guessedletters {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
